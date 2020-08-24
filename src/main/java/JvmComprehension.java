@@ -1,19 +1,19 @@
 public class JvmComprehension {
 
-    public static void main(String[] args) { // в момент загрузки main в StackM создается фрейм
+    public static void main(String[] args) { // в момент загрузки main в StackMemory создается фрейм
 
-        int i = 1;                      // 1  в StackM загружается примитив в виде фрейма
+        int i = 1;                      // 1  в StackMemory загружается примитив во фрейм
 
         Object o = new Object();        // 2 Так как это "Object" о нем уже есть инфо в Metaspace, в Heap создается объект,
-        // а в StackM кладется ссылка на этот объект(в виде фрейма)
+        // а в StackMemory кладется ссылка на этот объект(в фрейм)
 
         Integer ii = 2;                 // 3  в Heap создается объект,
-        // а в StackM кладется ссылка на этот объект(в виде фрейма)
+        // а в StackMemory кладется ссылка на этот объект(в фрейм)
 
-        printAll(o, i, ii);             // 4  создается фрейм на верху стека, число кладется в StackM
-        // далее создаётся 2 объекта в heap, ссылки кладутся в стек.
+        printAll(o, i, ii);             // 4  создается фрейм на верху стека, число кладется в StackMemory
+        // далее создаётся 2 объекта ссылки кладутся в стек.
 
-        System.out.println("finished"); // 7   в StackM новый фрейм, далее main() удаляется из памяти.
+        System.out.println("finished"); // 7   в StackMemory новый фрейм, далее фрейм удаляется из памяти.
 
     }
 
@@ -23,8 +23,8 @@ public class JvmComprehension {
         // в Heap создается объект,
         // а в StackM кладется ссылка на этот объект(в виде фрейма)
 
-        System.out.println(o.toString() + i + ii);  // 6  в StackM создаётся новый фрейм передается ссылка ii,
-        // метод выполнился и удаляется из памяти.
+        System.out.println(o.toString() + i + ii);  // 6  в StackMemory создаётся новый фрейм передается ссылка ii,
+        // метод выполнился и удаляется из фрейма.
     }
 }
 
